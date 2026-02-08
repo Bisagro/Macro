@@ -1,0 +1,168 @@
+<html>
+<head>
+	<link rel="stylesheet" href="root.css">
+	<title>Macro</title>
+	<link rel="icon" type="image/x-icon" href="public/logo.ico">
+	<script src="server.js"></script>
+</head>
+
+<body>
+	<header>
+		<select onchange="onChangeL1(this.value)">
+			<option hidden>-- Select L1 --</option>
+			<option value="Start">Start</option>
+			<option value="Log">Logistics</option>
+			<option value="RR">Return/Refund</option>
+			<option value="Other">Others</option>
+			<option value="End">End</option>
+		</select>
+		<select id="sel2" disabled onchange="onChangeL2(this.value)">
+			<option hidden">-- Select Reason --</option>
+		</select>
+	</header>
+	<div id="parentContainer">
+		<div class="container">Select Something!</div>
+	</div>
+</body>
+</html>
+
+<script>
+	function fetchJsonData(value) {
+    		const section = serverData[value];
+
+    		if (section) {
+        		return section;
+    		} else {
+			const object = document.getElementById('parentContainer');
+			object.innerHTML = `<div class="container">Under Maintenance!</div>`;
+    		}
+	}
+	function giveInfo(value){
+		const datas = fetchJsonData(value);
+		console.log(datas);
+		const object = document.getElementById('parentContainer');
+		object.innerHTML = ``;
+
+		datas.forEach((item) => {
+			inHtml(item[0], item[1], item[2], item[3]);
+		});
+		
+	}
+	async function onChangeL1(val){
+		const sel2 = document.getElementById('sel2');
+		const con = document.getElementById('parentContainer');
+		sel2.disabled = false;
+		if(val == "Log"){
+			console.log("this is logistics");
+			sel2.innerHTML = `
+				<option hidden>-- Select Reason --</option>
+				<option value="stuck">Stuck</option>
+				<option value="EDD">EDD</option>
+				<option value="instant">instant</option>
+				<option value="SDD">SDD</option>
+				<option value="NDD">NDD</option>
+				<option value="2DD">2DD</option>
+				<option value="international">international</option>
+			`;
+		}
+		else if(val == "RR"){
+			console.log("this is Return and Refund");
+			sel2.innerHTML = `
+				<option hidden>-- Select Reason --</option>
+				<option value="reverse">Reverse</option>
+				<option value="refund">Refund</option>
+			`;
+
+		}else if(val == "Other"){
+			console.log("this is Other");
+			sel2.innerHTML = `
+				<option hidden>-- Select Reason --</option>
+				<option value="incompletechat">Incomplete Chat</option>
+				<option value="MCB">MCB</option>
+			`;
+
+		}else if(val == "Start"){
+			con.innerHTML = "";
+			console.log("this is Start");
+			sel2.disabled = true;
+			sel2.innerHTML = `<option hidden>-- Start Spiel --</option>`;
+			giveInfo(val);
+		}else if(val == "End"){
+			con.innerHTML = "";
+
+			sel2.disabled = true;
+			console.log("this is End");
+			sel2.innerHTML = `<option hidden>-- End Spiel --</option>`;
+
+		}
+
+	}
+
+	function copyChild(val){
+		navigator.clipboard.writeText(val);
+	}
+	function inHtml(title, sub, reason, reply){
+		const object = document.getElementById('parentContainer');
+		
+		var replies = ``;
+		reply.forEach((item) => {
+			if (item.includes("///")) {
+    				const itemsplt = item.split("///");
+				if(itemsplt[0].includes("Internal Note")){
+					replies += `<div class="con_title">${itemsplt[0]}</div>
+						<table>
+							<tr>
+								<th>Queue</th>
+								<td onclick="copyChild(this.innerText)">${itemsplt[1]}</td>
+							</tr>
+						</table>
+						<div class="con_internalNote" onclick="copyChild(this.innerText)">${itemsplt[2]}</div>`;
+				}else{
+    					replies += `
+        					<div class="con_option">${itemsplt[0]}</div>
+        					<div class="con_action" onclick="copyChild(this.innerText)">${itemsplt[1]}</div>    				
+					`;
+				}
+			}else{
+				replies += `<div class="con_action" onclick="copyChild(this.innerText)">`+ item +`</div>`;
+			}
+		});
+		if(replies.includes("Internal Note")){
+			replies += referCase();
+		}
+		var modifyInnerHtml =  `<div class="container"><div class="con_title">${title}</div>`;
+		if(sub !== ""){
+			modifyInnerHtml += `
+				<table>
+					<tr>
+						<th>Subject</th>
+						<td onclick="copyChild(this.innerText)">${sub}</td>
+					</tr>
+					<tr>
+						<th>Reason</th>
+						<td onclick="copyChild(this.innerText)">${reason}</td>
+					</tr>
+				</table>`;
+		}
+		modifyInnerHtml += `<div class="con_reply">-- Reply This! --</div>${replies}</div>`;
+		object.innerHTML += modifyInnerHtml;
+	}
+
+	function referCase(){
+		return`
+			<div class="con_reply">-- Case Refer --</div>
+			<div class="con_option">Case Reply 1</div>
+			<div class="con_action" onclick="copyChild(this.innerText)">You can refer to this Case ID #{Case ID} for further assistance! Our relevant team will reach out to you within 3-5 working days.</div>
+			<div class="con_option">Case Reply 2</div>
+			<div class="con_action" onclick="copyChild(this.innerText)">To find your Case ID using the Shopee App, please follow these steps:</br> 
+1. Go to the Me tab.</br>2. Select Help Center.</br>3. Scroll down and choose Case Tracker.</div>
+			<div class="con_option">Case Reply 3</div>
+			<div class="con_action" onclick="copyChild(this.innerText)">You will be redirected to the My Enquiries page, where you can view all of your enquiries. You can filter your enquiries by tapping All, Ongoing, or Closed.</div>
+			<div class="con_option">Case Reply 4</div>
+			<div class="con_action" onclick="copyChild(this.innerText)">Select the relevant enquiry ticket, and you will find your Case ID displayed alongside the ticket details, allowing you to track its status and progress.</div>
+		`;
+	}
+	async function onChangeL2(val){
+		giveInfo(val)	
+	}
+</script>

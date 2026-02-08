@@ -1,0 +1,121 @@
+:root{
+	--text-color: black;
+	--text-color-dm: white;
+    	--bg-color: #DBDBDB;
+	--bg-color-dm: #1B1B1B;
+}
+
+header{
+	display: flex;
+	padding: 10px;
+	background-color: white;
+	box-shadow: 0px 5px 10px 10px rgba(0, 0, 0, 0.1);
+}header select{
+	flex: 1;
+	margin: 5px;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 7px;
+}header select:hover{
+	cursor: pointer;
+}
+
+
+body{
+	font-family: arial;
+	margin: 0px;
+	padding: 0px;
+	color: var(--text-color);
+	background-color: var(--bg-color);
+
+	-webkit-user-select: none;
+    	-ms-user-select: none;
+    	user-select: none;
+}
+
+.container{
+	padding: 10px;
+	margin: 20px 10px;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.05);
+}.container .con_title{	padding: 10px;
+	font-size: 25px;
+	border-bottom: 1px solid #DBDBDB;
+	text-align: center;
+}
+.container table{
+	width: 100%;
+	border-bottom: 1px solid #DBDBDB;
+	margin: 10px;
+	padding-bottom: 10px;
+}.container td, .container th{
+	padding: 7px;
+	border-radius: 7px;
+	color: white;
+}.container th{
+	width: 70px;
+	text-align: center;
+	background-color: #700e01;
+}.container td{
+	background-color: #d53600;
+	transition: all 150ms ease;
+}.container td:hover{
+	background-color: #ff8503;
+	cursor: pointer;
+}.container td:active{
+	background-color: #ffd22b;
+}.container .con_reply{
+	margin-top: 20px;
+	padding: 5px;
+	text-align: center;
+	font-size: 22px;
+}.container .con_option{
+	font-weight: bold;
+	margin: 10px 20px 0px 20px;
+	border: solid 1px #DBDBDB;
+	padding: 5px;
+	font-size: 18px;
+}.container .con_action{
+	padding: 10px;
+	margin: 5px 20px 20px 20px;
+	border-radius: 10px;
+	word-break: break-all;
+	white-space: normal;
+	overflow-wrap: break-word; 
+    	word-wrap: break-word;
+	transition: all 150ms ease;
+}.container .con_action:hover{
+	cursor: pointer;
+	color: white;
+	background-color: red;
+	box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.3);
+}.container .con_action:active{
+	background-color: orange;
+}.container .con_internalNote{
+	background-color: rgb(251, 238, 184);
+	padding: 10px;
+	border-radius: 10px;
+	transition: all 150ms ease;
+}.container .con_internalNote:hover{
+	cursor: pointer;
+}.container .con_internalNote:active{
+	background-color: rgb(251, 238, 210);
+	box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* Button Style */
+.btn_white{
+	border-radius: 20px;
+	margin: 5px;
+	padding: 10px;
+	background-color: white;
+	text-align: center;
+}.btn_white:hover{
+	cursor: pointer;
+}.btn_white:active{
+	background-color: transparent;
+}
