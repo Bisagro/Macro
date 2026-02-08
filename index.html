@@ -17,7 +17,7 @@
 			<option value="Other">Others</option>
 			<option value="End">End</option>
 		</select>
-		<select id="sel2" disabled">
+		<select id="sel2" disabled onchange="location = '#'+this.value">
 			<option hidden">-- Select Reason --</option>
 		</select>
 	</header>
@@ -45,12 +45,12 @@
 		object.innerHTML = ``;
 
 		datas.forEach((item) => {
-			inHtml(item[0], item[1], item[2], item[3]);
+			inHtml(item[0], item[1], item[2], item[3], item[4]);
 		});
 		
 	}
 	async function onChangeL1(val){
-		const sel2 = document.getElementById('sel2');
+		const sel2 = document.getElementById('sel2');	
 		const con = document.getElementById('parentContainer');
 		con.innerHTML = "";
 		sel2.disabled = false;
@@ -58,34 +58,41 @@
 			console.log("this is logistics");
 			sel2.innerHTML = `
 				<option hidden>-- Select Reason --</option>
-				<option value="stuck">Stuck</option>
+				<option value="Stuck">Stuck</option>
 				<option value="EDD">EDD</option>
-				<option value="instant">instant</option>
+				<option value="Instant">instant</option>
 				<option value="SDD">SDD</option>
 				<option value="NDD">NDD</option>
 				<option value="2DD">2DD</option>
-				<option value="international">international</option>
+				<option value="International">international</option>
 			`;
 		}
 		else if(val == "RR"){
 			console.log("this is Return and Refund");
 			sel2.innerHTML = `
 				<option hidden>-- Select Reason --</option>
-				<option value="reverse">Reverse</option>
-				<option value="refund">Refund</option>
+				<option value="Reverse">Reverse</option>
+				<option value="Refund">Refund</option>
 			`;
 
 		}else if(val == "Other"){
 			console.log("this is Other");
 			sel2.innerHTML = `
 				<option hidden>-- Select Reason --</option>
-				<option value="incompletechat">Incomplete Chat</option>
+				<option value="Incompletechat">Incomplete Chat</option>
 				<option value="MCB">MCB</option>
 			`;
 
 		}else if(val == "Start"){
 			console.log("this is Start");
-			sel2.innerHTML = `<option hidden>-- Start Spiel --</option>`;
+			sel2.innerHTML = `
+				<option hidden>-- Start Spiel --</option>
+				<option value="Start">Start</option>
+				<option value="Incomplete">Incomplete</option>
+				<option value="Buyer/Seller">Buyer/Seller</option>
+				<option value="Hold">Hold</option>
+				<option value="TyHold">TY Holding</option>
+			`;
 		}else if(val == "End"){
 			console.log("this is End");
 			sel2.innerHTML = `<option hidden>-- End Spiel --</option>`;
@@ -97,7 +104,7 @@
 	function copyChild(val){
 		navigator.clipboard.writeText(val);
 	}
-	function inHtml(title, sub, reason, reply){
+	function inHtml(title, sub, reason, reply, id){
 		const object = document.getElementById('parentContainer');
 		
 		var replies = ``;
@@ -126,7 +133,7 @@
 		if(replies.includes("Internal Note")){
 			replies += referCase();
 		}
-		var modifyInnerHtml =  `<div class="container"><div class="con_title">${title}</div>`;
+		var modifyInnerHtml =  `<div class="container" id="${id}"><div class="con_title">${title}</div>`;
 		if(sub !== ""){
 			modifyInnerHtml += `
 				<table>
