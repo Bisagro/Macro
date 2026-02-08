@@ -1,7 +1,7 @@
 :root{
 	--text-color: black;
 	--text-color-dm: white;
-    	--bg-color: #DBDBDB;
+    --bg-color: #DBDBDB;
 	--bg-color-dm: #1B1B1B;
 }
 
@@ -30,8 +30,8 @@ body{
 	background-color: var(--bg-color);
 
 	-webkit-user-select: none;
-    	-ms-user-select: none;
-    	user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .container{
