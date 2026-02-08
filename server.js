@@ -54,53 +54,49 @@ const serverData = {
 		]
 
 	],
-    	"stuck": [
-        	[
-			"Order Stuck => 2 Days/Misroute Issue",
-        		"[LOGS] Delivery status of Order #",
-        		"Logistics > Shipping > Other shipping issues",
-        		[
-				"Reply 1///It seems that your parcel has been delayed since delivery status updates can be inconsistent due to a variety of factors, including system backlogs, high parcel volume especially on peak periods, and occasional logistical errors.",
-				"IF ORDER == OVERSEAS///Orders from overseas often take longer to process and clear customs, resulting in several days without tracking updates.",
-				"Reply 2///No worries because I am here to help you! I have coordinated this case to our relevant team to get an update on your parcel and be delivered to you as soon as possible.",
-				"Internal Note for SPX///MY - L3 - SPX Express - EDD///Hi team,</br>Kindly assist the user to check parcel status as the order is stuck since [Date].</br></br>User ID:</br>Username:</br>Order SN:</br>Order ID:</br>Tracking No:</br></br>Thank you. ",
-				"Internal Note for Non - SPX///Don't QUEUE///Hi team,</br>Kindly assist the user to check parcel status as the order is stuck since [Date].</br></br>User ID:</br>Username:</br>Order SN:</br>Order ID:</br>Tracking No:</br></br>Thank you. "
-			]
-        	]
-    	],
-	"reverse": [
-        	[
+	"stuck": [
+		[
+		"Order Stuck => 2 Days/Misroute Issue",
+			"[LOGS] Delivery status of Order #",
+			"Logistics > Shipping > Other shipping issues",
+			[
+			"Reply 1///It seems that your parcel has been delayed since delivery status updates can be inconsistent due to a variety of factors, including system backlogs, high parcel volume especially on peak periods, and occasional logistical errors.",
+			"IF ORDER == OVERSEAS///Orders from overseas often take longer to process and clear customs, resulting in several days without tracking updates.",
+			"Reply 2///No worries because I am here to help you! I have coordinated this case to our relevant team to get an update on your parcel and be delivered to you as soon as possible.",
+			"Internal Note for SPX///MY - L3 - SPX Express - EDD///Hi team,</br>Kindly assist the user to check parcel status as the order is stuck since [Date].</br></br>User ID:</br>Username:</br>Order SN:</br>Order ID:</br>Tracking No:</br></br>Thank you. ",
+			"Internal Note for Non - SPX///Don't QUEUE///Hi team,</br>Kindly assist the user to check parcel status as the order is stuck since [Date].</br></br>User ID:</br>Username:</br>Order SN:</br>Order ID:</br>Tracking No:</br></br>Thank you. "
+		]
+		]
+	],
+	"RR": [
+		[
 			"Delayed Pick Up",
-        		"[RR] Failed Reverse Pick Up Request - Order #",
-        		"Return/Refund > General Enquiries_R/R > Failed reverse pick-up attempt",
-        		[
-				"Reply 1///It seems that the pick up is delayed. No worries because I can help you with this matter",
-				"Reply 2///Kindly fill out this Rearrange Pickup Parcel form so that our courier team will be notified https://help.shopee.com.my/portal/webform/e14d6964fbc04473bc9a983ba05bb192",
-				"Reply 3///After you fill out that form, our courier team will contact you within 48 hours to schedule a second pickup attempt."
+			"[RR] Failed Reverse Pick Up Request - Order #",
+			"Return/Refund > General Enquiries_R/R > Failed reverse pick-up attempt",
+			[
+			"Reply 1///It seems that the pick up is delayed. No worries because I can help you with this matter",
+			"Reply 2///Kindly fill out this Rearrange Pickup Parcel form so that our courier team will be notified https://help.shopee.com.my/portal/webform/e14d6964fbc04473bc9a983ba05bb192",
+			"Reply 3///After you fill out that form, our courier team will contact you within 48 hours to schedule a second pickup attempt."
 			]
-		]
-    	],
-	"refund": [
-        	[
+		],
+		[
 			"Refund to ShopeePay",
-        		"[RR] Check Refund Status - Order #",
-        		"Return/Refund > Refund/Escrow > Refund not received in ShopeePay",
-        		[
-				"Reply 1///It seems that the pick up is delayed. No worries because I can help you with this matter",
-				"Reply 2///Kindly fill out this Rearrange Pickup Parcel form so that our courier team will be notified https://help.shopee.com.my/portal/webform/e14d6964fbc04473bc9a983ba05bb192",
-				"Reply 3///After you fill out the form, our courier team will contact you within 48 hours to schedule a second pickup attempt."
+			"[RR] Check Refund Status - Order #",
+			"Return/Refund > Refund/Escrow > Refund not received in ShopeePay",
+			[
+			"Reply 1///It seems that the pick up is delayed. No worries because I can help you with this matter",
+			"Reply 2///Kindly fill out this Rearrange Pickup Parcel form so that our courier team will be notified https://help.shopee.com.my/portal/webform/e14d6964fbc04473bc9a983ba05bb192",
+			"Reply 3///After you fill out the form, our courier team will contact you within 48 hours to schedule a second pickup attempt."
 			]
 		]
-    	],
-	"SDD": [
-        	[
+	],
+	"Log": [
+        [
 			"Same Day Delivery",
         		"[LOGS] Shopee Same Day Delivery - Order #",
         		"Logistics > Shipping > Other shipping issues",
         		[]
-		]
-    	],
-	"international": [
+		],
 		[
         		"Outside of Malaysia",
         		"[LOGS] Express Delivery (International) - Order #",
@@ -111,6 +107,6 @@ const serverData = {
             		"Reply 3///Unfortunately, this means that if the parcel is outside of Malaysia, it could really take that long.",
             		"Can't Expedite///I apologize because it also means that we don't have the authority to expedite the delivery of your item since it is still outside of Malaysia."
 			]
-        	]
-    	]
+        ]
+	]
 };

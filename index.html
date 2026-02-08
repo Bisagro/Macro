@@ -17,7 +17,7 @@
 			<option value="Other">Others</option>
 			<option value="End">End</option>
 		</select>
-		<select id="sel2" disabled onchange="onChangeL2(this.value)">
+		<select id="sel2" disabled">
 			<option hidden">-- Select Reason --</option>
 		</select>
 	</header>
@@ -52,6 +52,7 @@
 	async function onChangeL1(val){
 		const sel2 = document.getElementById('sel2');
 		const con = document.getElementById('parentContainer');
+		con.innerHTML = "";
 		sel2.disabled = false;
 		if(val == "Log"){
 			console.log("this is logistics");
@@ -83,19 +84,13 @@
 			`;
 
 		}else if(val == "Start"){
-			con.innerHTML = "";
 			console.log("this is Start");
-			sel2.disabled = true;
 			sel2.innerHTML = `<option hidden>-- Start Spiel --</option>`;
-			giveInfo(val);
 		}else if(val == "End"){
-			con.innerHTML = "";
-
-			sel2.disabled = true;
 			console.log("this is End");
 			sel2.innerHTML = `<option hidden>-- End Spiel --</option>`;
-
 		}
+		giveInfo(val);
 
 	}
 
@@ -162,8 +157,5 @@
 			<div class="con_option">Case Reply 4</div>
 			<div class="con_action" onclick="copyChild(this.innerText)">Select the relevant enquiry ticket, and you will find your Case ID displayed alongside the ticket details, allowing you to track its status and progress.</div>
 		`;
-	}
-	async function onChangeL2(val){
-		giveInfo(val)	
 	}
 </script>
