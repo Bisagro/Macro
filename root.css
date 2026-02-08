@@ -1,26 +1,13 @@
+html{
+	scroll-behavior: smooth;
+}
+
 :root{
 	--text-color: black;
 	--text-color-dm: white;
     --bg-color: #DBDBDB;
 	--bg-color-dm: #1B1B1B;
 }
-
-header{
-	display: flex;
-	padding: 10px;
-	background-color: white;
-	box-shadow: 0px 5px 10px 10px rgba(0, 0, 0, 0.1);
-}header select{
-	flex: 1;
-	margin: 5px;
-	font-size: 20px;
-	text-align: center;
-	border-radius: 10px;
-	padding: 7px;
-}header select:hover{
-	cursor: pointer;
-}
-
 
 body{
 	font-family: arial;
@@ -34,12 +21,51 @@ body{
     user-select: none;
 }
 
+header{
+	position: fixed;
+	display: flex;
+	padding: 10px;
+	width: calc(100vw - 20px);
+	background-color: white;
+	box-shadow: 0px 5px 10px 10px rgba(0, 0, 0, 0.1);
+	align-items: center;
+	top: 0%;
+}header select{
+	flex: 1;
+	margin: 5px;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 7px;
+}header select:hover{
+	cursor: pointer;
+}header #home{
+	border-radius: 8px;
+	margin-right: 5px;
+	padding: 8px;
+	transition: all 150ms ease;
+}header #home:hover{
+	background-color: #f1f1f1;
+	cursor: pointer;
+}header #home:active{
+	box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.3);
+	background-color: #DBDBDB;
+}header #home img{	
+	width: 25px;
+}
+
+#parentContainer{
+	margin-top: 90px;
+	scroll-margin-top: 90px;
+}
+
 .container{
 	padding: 10px;
 	margin: 20px 10px;
 	background-color: white;
 	border-radius: 10px;
 	box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.05);
+	scroll-margin-top: 90px;
 }.container .con_title{	padding: 10px;
 	font-size: 25px;
 	border-bottom: 1px solid #DBDBDB;
@@ -84,7 +110,7 @@ body{
 	word-break: break-all;
 	white-space: normal;
 	overflow-wrap: break-word; 
-    	word-wrap: break-word;
+    word-wrap: break-word;
 	transition: all 150ms ease;
 }.container .con_action:hover{
 	cursor: pointer;
